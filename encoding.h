@@ -6,6 +6,15 @@
 
 #include <vector>
 
+
+struct branch {
+    char letter;
+
+    unsigned freq;
+
+    branch *left, *right;
+};
+
     class encoding {
         static std::vector<char> sentence;
         static std::vector<int> frequently;
@@ -14,6 +23,8 @@
         static bool read(const std::string& nameOfFile);
         static void writeOnConsole();
         static bool encodingMetod();
+        static branch * createNode(char, unsigned);
+        static branch * createTree();
     };
 
 

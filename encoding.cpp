@@ -41,6 +41,24 @@ void encoding::writeOnConsole() {
     }
 }
 
+branch * encoding::createNode(char letter, unsigned freq) {
+    auto * newNode = new branch;
+    newNode->letter = letter;
+    newNode->freq = freq;
+    newNode->left = nullptr;
+    newNode->right = nullptr;
+    return newNode;
+}
+
+branch * encoding::createTree() {
+    std::vector<branch*> treeNodes;
+     for (const auto& pair : dictionary) {
+         branch * branch = createNode(pair.first, pair.second);
+        treeNodes.push_back(branch);
+    }
+}
+
+
 bool encoding::encodingMetod() {
     for (char character : sentence) {
         if (dictionary.find(character) != dictionary.end()) {
